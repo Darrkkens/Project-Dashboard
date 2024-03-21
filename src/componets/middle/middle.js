@@ -34,7 +34,7 @@ const Middle = () => {
                     <div className="bottom">
                         <div className="left">
                             <small>Card Holder</small>
-                            <h5>JOHN DOE</h5>
+                            <h5>BRUCE WAYNE</h5>
                         </div>
                         <div className="right">
                             <div className="expiry"> 
@@ -65,7 +65,7 @@ const Middle = () => {
                     <div className="bottom">
                         <div className="left">
                             <small>Card Holder</small>
-                            <h5>JOHN DOE</h5>
+                            <h5>BRUCE WAYNE</h5>
                         </div>
                         <div className="right">
                             <div className="expiry"> 
@@ -96,7 +96,7 @@ const Middle = () => {
                     <div className="bottom">
                         <div className="left">
                             <small>Card Holder</small>
-                            <h5>JOHN DOE</h5>
+                            <h5>BRUCE WAYNE</h5>
                         </div>
                         <div className="right">
                             <div className="expiry"> 

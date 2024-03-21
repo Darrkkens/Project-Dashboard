@@ -38,6 +38,22 @@ function App() {
   const handleCloseSidebar = () => {
     setIsSidebarOpen(false);
   };
+  
+  useEffect(() => {
+    const menuBtn = document.querySelector('#menu-btn');
+    const closeBtn = document.querySelector('#close-btn');
+    const sidebar = document.querySelector('aside');
+
+    if (menuBtn && closeBtn && sidebar) {
+        menuBtn.addEventListener('click', () => {
+            sidebar.style.display = 'block';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sidebar.style.display = 'none';
+        });
+    }
+}, []);
 
   return (
     <div>
