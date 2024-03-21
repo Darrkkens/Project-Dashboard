@@ -1,23 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import Investments from './componets/leaftside/leaft';
+import Middle from './componets/middle/middle';
+import Navbar from './componets/navbar/navbar';
+import Sidebar from './componets/slidebar/slidebar';
+import './main.css';
 
 function App() {
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    const themeBtn = document.querySelector('.theme-btn');
+
+    const toggleTheme = () => {
+      setIsDarkTheme(prevTheme => !prevTheme);
+    };
+
+    themeBtn.addEventListener('click', toggleTheme);
+
+    return () => {
+      themeBtn.removeEventListener('click', toggleTheme);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isDarkTheme) {
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.remove('dark-theme');
+    }
+  }, [isDarkTheme]);
+
+  const handleOpenSidebar = () => {
+    setIsSidebarOpen(true);
+  };
+
+  const handleCloseSidebar = () => {
+    setIsSidebarOpen(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar onOpenSidebar={handleOpenSidebar} />
+      <main>
+        <Sidebar isOpen={isSidebarOpen} onCloseSidebar={handleCloseSidebar} />
+        <Middle />
+        <Investments />
+      </main>
     </div>
   );
 }
